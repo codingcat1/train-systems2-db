@@ -12,4 +12,9 @@ describe Line do
     expect(test_line.name).to eq "Red"
   end
 
+  it "starts out with an empty array of lines" do
+    test_line = Line.new({:name => "Red"})
+    expect(Line.all).to eq []
+  end
+
 end

@@ -5,5 +5,8 @@ class Line
     @name = attributes[:name]
   end
 
+  def self.all
+    lines = []
+  end
 
 end
