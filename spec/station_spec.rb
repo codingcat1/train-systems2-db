@@ -13,4 +13,9 @@ describe Station do
     test_station = Station.new({:name => "A"})
     expect(test_station.name).to eq "A"
   end
+
+  it "starts out with an empty array of stations" do
+    test_station = Station.new({:name => "A"})
+    expect(Station.all).to eq []
+  end
 end
