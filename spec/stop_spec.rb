@@ -41,6 +41,15 @@ describe Stop do
     expect(test_stop).to eq test_stop2
   end
 
+  it 'sets an id to a stop when saved' do
+    test_line = Line.new(:name => "Red")
+    test_station = Station.new(:name => "A")
+    test_stop = Stop.new({:station_id => test_station.id,
+      :line_id => test_line.id})
+    test_stop.save
+    expect(test_stop.id).to be_an_instance_of Fixnum
+  end
+
 end
 
 

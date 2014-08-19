@@ -1,16 +1,19 @@
 class Stop
-  attr_reader :station_id, :line_id
+  attr_reader :station_id, :line_id, :id
 
   def initialize(attributes)
     @station_id = attributes[:station_id].to_i
     @line_id = attributes[:line_id].to_i
+    @id = attributes[:id].to_i
   end
 
   def self.all
     stops = []
     results = DB.exec("SELECT * FROM stops;")
       results.each do |result|
-        attributes = {:station_id => result['station_id'], :line_id => result['line_id']}
+        attributes = {:station_id => result['station_id'],
+          :line_id => result['line_id'],
+          :id => result['id']}
         current_stop = Stop.new(attributes)
         stops << current_stop
       end
@@ -19,7 +22,8 @@ class Stop
 
   def save
     results = DB.exec("INSERT INTO stops (station_id, line_id)
-      VALUES (#{@station_id}, #{@line_id});")
+      VALUES (#{@station_id}, #{@line_id}) RETURNING id;")
+    @id = results.first['id'].to_i
   end
 
   def ==(another_stop)
