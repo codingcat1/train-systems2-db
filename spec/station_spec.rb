@@ -18,4 +18,18 @@ describe Station do
     test_station = Station.new({:name => "A"})
     expect(Station.all).to eq []
   end
+
+  it 'saves the station to the stations table' do
+    test_station = Station.new ({:name => "A"})
+    test_station.save
+    expect(Station.all).to eq [test_station]
+  end
+
+  it "recognizes two occurrences of a station as two different objects" do
+    test_station = Station.new ({:name => "A"})
+    test_station2 = Station.new ({:name => "A"})
+    expect(test_station).to eq test_station2
+  end
+
+
 end
