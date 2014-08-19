@@ -8,7 +8,6 @@ describe Station do
     expect(test_station).to be_an_instance_of Station
   end
 
-
   it "shows the user the station they initialized" do
     test_station = Station.new({:name => "A"})
     expect(test_station.name).to eq "A"
@@ -31,5 +30,10 @@ describe Station do
     expect(test_station).to eq test_station2
   end
 
+  it 'sets the id to a station when its saved' do
+    test_station = Station.new ({:name => "A"})
+    test_station.save
+    expect(test_station.id).to be_an_instance_of Fixnum
+  end
 
 end
