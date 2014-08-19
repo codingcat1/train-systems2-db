@@ -19,12 +19,28 @@ describe Stop do
   end
 
   it 'creates an empty array of stops' do
+    expect(Stop.all).to eq []
+  end
+
+  it 'saves station_id and line_id to stops table' do
     test_line = Line.new(:name => "Red")
     test_station = Station.new(:name => "A")
     test_stop = Stop.new({:station_id => test_station.id,
       :line_id => test_line.id})
-    expect(Stop.all).to eq []
+    test_stop.save
+    expect(Stop.all).to eq [test_stop]
   end
+
+  it "recognizes two occurrences of a stop as two different objects" do
+    test_line = Line.new(:name => "Red")
+    test_station = Station.new(:name => "A")
+    test_stop = Stop.new ({:station_id => test_station.id,
+      :line_id => test_line.id})
+    test_stop2 = Stop.new ({:station_id => test_station.id,
+      :line_id => test_line.id})
+    expect(test_stop).to eq test_stop2
+  end
+
 end
 
 
