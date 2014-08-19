@@ -6,4 +6,6 @@ class Stop
     @line_id = attributes[:line_id]
   end
 
+
+
 end
