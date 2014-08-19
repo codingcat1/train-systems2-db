@@ -29,4 +29,10 @@ describe Line do
     expect(test_line).to eq test_line2
   end
 
+  it 'sets the id to a line when its saved' do
+    test_line = Line.new ({:name => "Red"})
+    test_line.save
+    expect(test_line.id).to be_an_instance_of Fixnum
+  end
+
 end
