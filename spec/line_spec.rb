@@ -17,4 +17,16 @@ describe Line do
     expect(Line.all).to eq []
   end
 
+  it 'saves the line to the lines table' do
+    test_line = Line.new ({:name => "Red"})
+    test_line.save
+    expect(Line.all).to eq [test_line]
+  end
+
+  it "recognizes two occurrences of a line as two different objects" do
+    test_line = Line.new ({:name => "Red"})
+    test_line2 = Line.new ({:name => "Red"})
+    expect(test_line).to eq test_line2
+  end
+
 end
