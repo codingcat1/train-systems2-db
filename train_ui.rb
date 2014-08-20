@@ -33,6 +33,24 @@ def main_menu
   end
 end
 
-
+def lines_menu
+  puts "*** WELCOME TO LINES MENU ***\n\n"
+  puts "Press '1' to add a line"
+  puts "Press '2' to list all lines"
+  puts "Press 'x' to return to main menu"
+  puts "\n\n"
+  lines_choice = gets.chomp
+  if lines_choice == '1'
+    add_line
+  elsif lines_choice == '2'
+    list_lines
+  elsif lines_choice == 'x'
+    main_menu
+  else
+    puts "Not a valid entry\n\n"
+    sleep(1)
+    lines_menu
+  end
+end
 main_menu
 
