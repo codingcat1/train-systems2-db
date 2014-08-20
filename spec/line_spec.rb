@@ -34,5 +34,4 @@ describe Line do
     test_line.save
     expect(test_line.id).to be_an_instance_of Fixnum
   end
-
 end

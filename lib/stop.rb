@@ -29,4 +29,8 @@ class Stop
   def ==(another_stop)
     (self.line_id == another_stop.line_id) && (self.station_id == another_stop.station_id)
   end
+
+
+
+
 end

@@ -28,4 +28,6 @@ class Line
     (@id == another_line.id)
   end
 
+
+
 end
