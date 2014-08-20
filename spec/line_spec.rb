@@ -48,5 +48,16 @@ describe Line do
     test_stop2 = Stop.new({:station_id => test_station2.id, :line_id => test_line.id})
     test_stop2.save
     expect(test_line.stops).to eq [test_station, test_station2]
-   end
+  end
+
+  # describe 'add_station' do
+  #   it 'adds a station to this line' do
+  #     test_station = Station.new({:name => "A"})
+  #     test_line = Line.new ({:name => "Red"})
+  #     test_station.save
+  #     test_line.save
+  #     test_line.add_station(test_station)
+  #     expect(test_line.stops).to eq [test_station]
+  #   end
+  # end
 end

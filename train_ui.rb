@@ -78,6 +78,7 @@ def stations_menu
   puts "*** WELCOME TO STATIONS MENU ***\n\n"
   puts "Press '1' to add a station"
   puts "Press '2' to list stations"
+  puts "Press '3' to add a station to a line"
   puts "Press 'x' to return to main menu"
   puts "\n\n"
   stations_choice = gets.chomp
@@ -85,6 +86,8 @@ def stations_menu
     add_station
   elsif stations_choice == '2'
     list_stations
+  elsif stations_choice == '3'
+    add_station_line
   elsif stations_choice == 'x'
     main_menu
   else
@@ -110,7 +113,25 @@ def list_stations
   end
 end
 
+# def add_station_line
+#   puts "enter the line you want to add a station to:"
+#   station_input = gets.chomp
+#   if station_input = lines
 
+
+# def find_station(input)
+#   Station.all do |station|
+#     if station.name == name
+#       @result = station
+#     end
+#   end
+#   @result
+# end
+
+# station_id = find_station(input).id
+# line_id = find_line(input).id
+
+# Stop.new(station_id: station_id, line_id: line_id)
 
 main_menu
 

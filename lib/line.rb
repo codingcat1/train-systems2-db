@@ -38,4 +38,14 @@ class Line
     stations
   end
 
+  # def add_station(station)
+  #   Line.all do |x|
+  #     if x == station
+  #       result = x
+  #     end
+  #   end
+  #   result
+
+  # end
+
 end
