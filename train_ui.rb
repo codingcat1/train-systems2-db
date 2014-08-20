@@ -63,6 +63,12 @@ def add_line
   sleep(0.5)
 end
 
+def list_lines
+  puts "Heres a list of your lines"
+   Line.all.each do |line|
+     puts "#{line.name}"
+   end
+end
 
 
 main_menu
