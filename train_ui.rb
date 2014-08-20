@@ -44,6 +44,10 @@ def lines_menu
     add_line
   elsif lines_choice == '2'
     list_lines
+  elsif lines_choice == '3'
+    add_station
+  elsif lines_choice == '4'
+    list_stations
   elsif lines_choice == 'x'
     main_menu
   else
@@ -70,6 +74,27 @@ def list_lines
    end
 end
 
+def stations_menu
+puts "*** WELCOME TO STATIONS MENU ***\n\n"
+puts "Press '1' to add a station"
+puts "Press '2' to list stations"
+puts "Press 'x' to return to main menu"
+puts "\n\n"
+ stations_choice = gets.chomp
+  if stations_choice == '1'
+    add_station
+  elsif stations_choice == '2'
+    list_stations
+  elsif stations_choice == 'x'
+    main_menu
+  else
+    puts "Not a valid entry\n\n"
+    sleep(1)
+    stations_menu
+  end
+end
+
 
 main_menu
+
 
