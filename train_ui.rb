@@ -94,6 +94,14 @@ puts "\n\n"
   end
 end
 
+def add_station
+   puts "*** NEW STATION ***"
+   puts "enter your station name:"
+   station_input = gets.chomp
+   new_station = Station.new(:name => station_input)
+   new_station.save
+   puts "* #{new_station.name.upcase} * has been saved to your stations table.\n\n"
+ end
 
 main_menu
 
