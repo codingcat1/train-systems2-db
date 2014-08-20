@@ -52,5 +52,18 @@ def lines_menu
     lines_menu
   end
 end
+
+def add_line
+  puts "*** NEW LINE ***"
+  puts "Enter your line name:"
+  line_input = gets.chomp
+  new_line = Line.new(:name => line_input)
+  new_line.save
+  puts "* #{new_line.name.upcase} * has been saved to your lines table.\n\n"
+  sleep(0.5)
+end
+
+
+
 main_menu
 
