@@ -103,6 +103,13 @@ def add_station
   puts "* #{new_station.name.upcase} * has been saved to your stations table.\n\n"
 end
 
+def list_stations
+  puts "Heres a list of your stations"
+  Station.all.each do |station|
+    puts "#{station.name}"
+  end
+end
+
 
 
 main_menu
