@@ -10,8 +10,7 @@ class Line
     lines = []
     results = DB.exec("SELECT * FROM lines;")
       results.each do |result|
-        attributes = {:name => result['name'],
-          :id => result['id']}
+        attributes = {:name => result['name'], :id => result['id']}
         current_line = Line.new(attributes)
         lines << current_line
       end
@@ -28,6 +27,15 @@ class Line
     (@id == another_line.id)
   end
 
-
+  def stops
+    stations = []
+    results = DB.exec("SELECT stations.* FROM lines JOIN stops ON (lines.id = stops.line_id) JOIN stations ON (stations.id = stops.station_id) WHERE lines.id = #{@id};")
+    results.each do |result|
+      name = result['name']
+      id = result['id'].to_i
+      stations << Station.new(:name => result['name'], :id => result['id'])
+    end
+    stations
+  end
 
 end

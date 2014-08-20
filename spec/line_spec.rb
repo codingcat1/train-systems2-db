@@ -34,4 +34,19 @@ describe Line do
     test_line.save
     expect(test_line.id).to be_an_instance_of Fixnum
   end
+
+  it 'returns all stations on a line' do
+    test_station = Station.new({:name => "A"})
+    test_line = Line.new ({:name => "Red"})
+    test_station.save
+    test_line.save
+    test_stop = Stop.new({:station_id => test_station.id, :line_id => test_line.id})
+    test_stop.save
+
+    test_station2 = Station.new ({:name => "B"})
+    test_station2.save
+    test_stop2 = Stop.new({:station_id => test_station2.id, :line_id => test_line.id})
+    test_stop2.save
+    expect(test_line.stops).to eq [test_station, test_station2]
+   end
 end

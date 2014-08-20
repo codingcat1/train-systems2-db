@@ -18,8 +18,7 @@ class Station
   end
 
   def save
-    results = DB.exec("INSERT INTO stations (name) VALUES ('#{@name}')
-      RETURNING id;")
+    results = DB.exec("INSERT INTO stations (name) VALUES ('#{@name}') RETURNING id;")
     @id = results.first['id'].to_i
   end
 
