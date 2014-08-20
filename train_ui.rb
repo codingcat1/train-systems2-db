@@ -69,18 +69,18 @@ end
 
 def list_lines
   puts "Heres a list of your lines"
-   Line.all.each do |line|
-     puts "#{line.name}"
-   end
+  Line.all.each do |line|
+    puts "#{line.name}"
+  end
 end
 
 def stations_menu
-puts "*** WELCOME TO STATIONS MENU ***\n\n"
-puts "Press '1' to add a station"
-puts "Press '2' to list stations"
-puts "Press 'x' to return to main menu"
-puts "\n\n"
- stations_choice = gets.chomp
+  puts "*** WELCOME TO STATIONS MENU ***\n\n"
+  puts "Press '1' to add a station"
+  puts "Press '2' to list stations"
+  puts "Press 'x' to return to main menu"
+  puts "\n\n"
+  stations_choice = gets.chomp
   if stations_choice == '1'
     add_station
   elsif stations_choice == '2'
@@ -95,13 +95,15 @@ puts "\n\n"
 end
 
 def add_station
-   puts "*** NEW STATION ***"
-   puts "enter your station name:"
-   station_input = gets.chomp
-   new_station = Station.new(:name => station_input)
-   new_station.save
-   puts "* #{new_station.name.upcase} * has been saved to your stations table.\n\n"
- end
+  puts "*** NEW STATION ***"
+  puts "enter your station name:"
+  station_input = gets.chomp
+  new_station = Station.new(:name => station_input)
+  new_station.save
+  puts "* #{new_station.name.upcase} * has been saved to your stations table.\n\n"
+end
+
+
 
 main_menu
 
